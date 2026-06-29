@@ -74,7 +74,7 @@ function clear-swapfiles() {
 source ~/.zsh_secrets
 
 # Shell integrations
-# source <(fzf --zsh)
+source <(fzf --zsh)
 export LESS=R
 
 

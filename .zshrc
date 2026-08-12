@@ -1,3 +1,6 @@
+# fastfetch starting prompt
+fastfetch
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -36,6 +39,10 @@ bindkey -e
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# Use custom `less` colors for `man` pages.
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -58,6 +65,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias v="nvim"
+alias ll='ls -la --color'
+alias c='clear'
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 cfzsh() { nvim ~/.zshrc }
 cfnv() { cd ~/.config/nvim && nvim; }
